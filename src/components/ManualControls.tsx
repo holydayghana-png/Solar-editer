@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { CelestialBody, SolarSystemState } from '../types';
-import { Settings2, Trash2, Plus, ChevronDown, ChevronUp } from 'lucide-react';
+import { Settings2, Plus, ChevronDown, ChevronUp } from 'lucide-react';
 import { motion, AnimatePresence } from 'motion/react';
 
 interface ManualControlsProps {
@@ -13,11 +13,6 @@ export default function ManualControls({ state, onUpdate }: ManualControlsProps)
 
   const updateBody = (id: string, updates: Partial<CelestialBody>) => {
     const newBodies = state.bodies.map(b => b.id === id ? { ...b, ...updates } : b);
-    onUpdate({ ...state, bodies: newBodies });
-  };
-
-  const deleteBody = (id: string) => {
-    const newBodies = state.bodies.filter(b => b.id !== id);
     onUpdate({ ...state, bodies: newBodies });
   };
 
@@ -73,12 +68,6 @@ export default function ManualControls({ state, onUpdate }: ManualControlsProps)
                   <span className="text-[10px] uppercase tracking-wider text-white/30 font-mono">{body.type}</span>
                 </div>
                 <div className="flex items-center gap-2">
-                  <button
-                    onClick={(e) => { e.stopPropagation(); deleteBody(body.id); }}
-                    className="p-1.5 rounded-md text-white/20 hover:text-red-400 hover:bg-red-400/10 transition-all opacity-0 group-hover:opacity-100"
-                  >
-                    <Trash2 className="w-4 h-4" />
-                  </button>
                   {editingId === body.id ? <ChevronUp className="w-4 h-4 text-white/40" /> : <ChevronDown className="w-4 h-4 text-white/40" />}
                 </div>
               </div>
