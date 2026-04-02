@@ -1,0 +1,5 @@
+{
+  "name": "Solar editer",
+  "description": "A high-fidelity solar system simulator where you can manually edit celestial bodies or use an AI assistant to reshape the cosmos.",
+  "requestFramePermissions": []
+}
