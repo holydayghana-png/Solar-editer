@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { INITIAL_SOLAR_SYSTEM, SolarSystemState } from './types';
-import SolarSystemCanvas from './components/SolarSystemCanvas';
+import SolarSystem3D from './components/SolarSystem3D';
 import AIAssistant from './components/AIAssistant';
 import ManualControls from './components/ManualControls';
 import { Rocket, Globe, Sparkles, Info } from 'lucide-react';
@@ -40,7 +40,7 @@ export default function App() {
           {/* 4K Preview Section */}
           <section className="aspect-video relative group">
             <div className="absolute -inset-1 bg-gradient-to-r from-blue-500/20 to-purple-500/20 rounded-2xl blur opacity-25 group-hover:opacity-40 transition duration-1000" />
-            <SolarSystemCanvas bodies={solarSystem.bodies} />
+            <SolarSystem3D bodies={solarSystem.bodies} />
           </section>
 
           {/* AI Assistant Section */}
